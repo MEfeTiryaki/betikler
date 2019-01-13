@@ -2,7 +2,7 @@
 
 SCRIPT_FOLDER=$(dirname $0)
 
-# Function to reset the terminal colors
+# Renkleri sıfırlar 
 function color_reset
 {
   echo -ne "\033[0m"
@@ -27,7 +27,7 @@ function show_branch
 	BEHIND=$(git status | grep behind -c)
 	CANFF=$(git status | grep fast-forwarded -c)
 	cd $CPATH
-	
+
 	STATE_MODIFIED=false
 	STATE_UNTRACKED=false
 	STATE=""
@@ -70,7 +70,7 @@ function show_branch
 	    STATE=$STATE",${COLOR_RED}behind"
 	  fi
 	fi
-	
+
 	NAME=$(basename $1)
 	printf "${COLOR_INFO}%-30s   ${COLOR_ITEM}%-30s${COLOR_RESET} %-30b${COLOR_RESET}\n" ${NAME} ${BRANCH} ${STATE}
   fi
@@ -107,4 +107,3 @@ for FOLDER in ${TARGET}/*/; do
 done
 echo ""
 color_reset
-
